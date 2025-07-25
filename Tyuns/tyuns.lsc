@@ -1,0 +1,185 @@
+Feature type(*cons, vowel)
+
+Feature place(labial, labiodental, dental, alveolar, postalveolar, retroflex, palatal, uvular, velar, glottal)
+Feature manner(stop, fricative, nasal, trill, tap, glide, lateral, latfricative,affricate)
+Feature category(obstruent, sonorant)
+Feature voice(voiced, voiceless)
+
+Feature height(open, cmid, omid, closed)
+Feature frontness(front, central, back)
+Feature quality(lax, tense)
+
+Feature +aspirated, +velarised, +palatalised, +creaky, +long, +marked, (syllable) +stressed
+Diacritic ʰ [+aspirated]
+Diacritic ʷ [+velarised]
+Diacritic ʲ [+palatalised]
+Diacritic ˀ [+creaky]
+Diacritic ː (floating) [+long]
+Diacritic ́  (floating) [+marked]
+Diacritic ˈ (before) [+stressed]
+
+Symbol a [open central lax vowel]
+Symbol ɑ [open back tense vowel]
+Symbol ɛ [omid front tense vowel]
+Symbol ə [omid central lax vowel]
+Symbol ʌ [omid back lax vowel]
+Symbol ɔ [omid back tense vowel]
+Symbol e [cmid front tense vowel]
+Symbol o [cmid back tense vowel]
+Symbol ʊ [cmid back lax vowel]
+Symbol i [closed front tense vowel]
+Symbol ɪ [closed front lax vowel]
+Symbol ɨ [closed central tense vowel]
+Symbol u [closed back tense vowel]
+
+Symbol p [labial stop voiceless obstruent]
+Symbol b [labial stop voiced obstruent]
+Symbol m [labial nasal voiced sonorant]
+Symbol ɸ [labial fricative voiceless obstruent]
+Symbol β [labial fricative voiced obstruent]
+
+Symbol f [labiodental fricative voiceless obstruent]
+Symbol v [labiodental fricative voiced obstruent]
+
+Symbol θ [dental fricative voiceless obstruent]
+Symbol ð [dental fricative voiced obstruent]
+
+Symbol t [alveolar stop voiceless obstruent]
+Symbol d [alveolar stop voiced obstruent]
+Symbol n [alveolar nasal voiced sonorant]
+Symbol s [alveolar fricative voiceless obstruent]
+Symbol z [alveolar fricative voiced obstruent]
+Symbol ɾ [alveolar tap voiced sonorant]
+Symbol r [alveolar trill voiced sonorant]
+Symbol ɹ [alveolar glide voiced sonorant]
+Symbol l [alveolar lateral voiced sonorant]
+Symbol ɬ [alveolar latfricative voiceless obstruent]
+
+Symbol ʈ [retroflex stop voiceless obstruent]
+Symbol ɖ [retroflex stop voiced obstruent]
+Symbol ɳ [retroflex nasal voiced sonorant]
+Symbol ɽ [retroflex tap voiced sonorant]
+
+Symbol ʃ [postalveolar fricative voiceless obstruent]
+Symbol ʒ [postalveolar fricative voiced obstruent]
+Symbol tʃ [postalveolar affricate voiceless obstruent]
+Symbol dʒ [postalveolar affricate voiced obstruent]
+
+Symbol c [palatal stop voiceless obstruent]
+Symbol ɟ [palatal stop voiced obstruent]
+Symbol ɲ [palatal nasal voiced sonorant]
+Symbol ɕ [palatal fricative voiceless obstruent]
+Symbol ʑ [palatal fricative voiced obstruent]
+Symbol tɕ [palatal affricate voiceless obstruent]
+Symbol dʑ [palatal affricate voiced obstruent]
+Symbol ʎ [palatal lateral voiced sonorant]
+Symbol j [palatal glide voiced sonorant]
+
+Symbol k [velar stop voiceless obstruent]
+Symbol ɡ [velar stop voiced obstruent]
+Symbol ŋ [velar nasal voiced sonorant]
+Symbol x [velar fricative voiceless obstruent]
+Symbol ɣ [velar fricative voiced obstruent]
+Symbol w [velar glide voiced sonorant]
+
+Symbol q [uvular stop voiceless obstruent]
+Symbol ɢ [uvular stop voiced obstruent]
+Symbol ɴ [uvular nasal voiced sonorant]
+Symbol ʀ [uvular trill voiced sonorant]
+Symbol χ [uvular fricative voiceless obstruent]
+Symbol ʁ [uvular fricative voiced obstruent]
+
+Symbol ʔ [glottal stop voiceless obstruent]
+Symbol h [glottal fricative voiceless obstruent]
+
+Symbol tɬ 
+Symbol dɮ 
+
+Class stressedvowels {á, é, í, ɨ́, ú, ó}
+Class unstressedvowels {a, e, i, ɨ, u, o}
+Class vclobstruent {p, t, k, s, ɸ, f, x}
+Class vcdobstruent {b, d, ɡ, z, β, v, ɣ}
+
+#Syllables:
+# explicit
+# [cons]? {[trill], [lateral], [fricative]}? [vowel] [cons]? [cons]? [cons]?
+
+#Stress-markers:
+#  [+marked -stressed] => [-marked +stressed] 
+# @stressedvowels [-stressed] => @unstressedvowels [+stressed]
+# á => a
+# é => e
+# í => i
+# ɨ́ => ɨ
+# ú => u
+# ó => o
+
+##Turn 76
+Retroflex-collapse:
+ [retroflex] => [alveolar]
+
+h-Lenition:
+ θ => h
+
+Creaky-stops:
+ [+creaky] * => [-creaky] ʔ
+
+##Turn 77 + 78
+Uvular-collapse:
+ [uvular] => [velar]
+
+Tap-lost:
+ ɾ => d
+
+rhotic-velar:
+ ɣ => ɹ
+
+lateral2palatal-approx:
+ ʎ => j
+
+Plosive-affrication:
+ [palatal stop] => [affricate]
+
+##Turn 79
+Palatalisation:
+ {[alveolar stop], [velar stop]} j => [palatal affricate] *
+
+lateral-simplification:
+ ɬ => l
+
+##Turn 80
+Vowel-pushchain:
+ {ɨ, i, e, a, o, u} => {ɪ, ɛ, ɛ, ɑ, ʊ, ʊ}
+
+Lenition-pushchain:
+ {k, s, x, h} => {x, h, h, *}
+
+##Turn 81
+Velar-fricatisation:
+ ɡ => ɣ
+
+z-rhoticisation:
+ z => ɹ
+
+##Turn 82
+Dentalisation:
+ ɕ => θ
+
+td-lenition:
+ [alveolar stop] => [fricative]
+
+##Turn 83
+Backed-vowels:
+ {ɪ, ɛ} => {ʊ, ɑ}/{_ ʔ, ʔ _} 
+
+Word-final-vowel-loss:
+ [vowel] => */[] [] _ $
+ [vowel +long] => [-long]/_ $
+
+##Turn 84
+Glottal-lost:
+ ʔ => *
+
+Labial-lenition:
+ [labial stop] => [fricative]
+ [labiodental fricative] => [labial]
