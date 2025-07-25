@@ -8,6 +8,7 @@ Feature voice(voiced, voiceless)
 Feature height(open, cmid, omid, closed)
 Feature frontness(front, central, back)
 Feature quality(lax, tense)
+Feature roundness(rounded,unround)
 
 Feature +aspirated, +velarised, +palatalised, +creaky, +long, +marked, (syllable) +stressed
 Diacritic ʰ [+aspirated]
@@ -18,19 +19,28 @@ Diacritic ː (floating) [+long]
 Diacritic ́  (floating) [+marked]
 Diacritic ˈ (before) [+stressed]
 
-Symbol a [open central lax vowel]
-Symbol ɑ [open back tense vowel]
-Symbol ɛ [omid front tense vowel]
-Symbol ə [omid central lax vowel]
-Symbol ʌ [omid back lax vowel]
-Symbol ɔ [omid back tense vowel]
-Symbol e [cmid front tense vowel]
-Symbol o [cmid back tense vowel]
-Symbol ʊ [cmid back lax vowel]
-Symbol i [closed front tense vowel]
-Symbol ɪ [closed front lax vowel]
-Symbol ɨ [closed central tense vowel]
-Symbol u [closed back tense vowel]
+Symbol a [open central lax unround vowel]
+Symbol ɶ [open central lax rounded vowel]
+Symbol ɑ [open back tense unround vowel]
+Symbol ɒ [open back tense rounded vowel]
+Symbol ɛ [omid front tense unround vowel]
+Symbol œ [omid front tense rounded vowel]
+Symbol ə [omid central lax unround vowel]
+Symbol ɞ [omid central lax rounded vowel]
+Symbol ʌ [omid back lax unround vowel]
+Symbol ɔ [omid back tense rounded vowel]
+Symbol e [cmid front tense unround vowel]
+Symbol ø [cmid front tense rounded vowel]
+Symbol o [cmid back tense rounded vowel]
+Symbol ʊ [cmid back lax rounded vowel]
+Symbol i [closed front tense unround vowel]
+Symbol y [closed front tense rounded vowel]
+Symbol ɪ [closed front lax unround vowel]
+Symbol ʏ [closed front lax rounded vowel]
+Symbol ɨ [closed central tense unround vowel]
+Symbol ʉ [closed central tense rounded vowel]
+Symbol ɯ [closed back tense unround vowel]
+Symbol u [closed back tense rounded vowel]
 
 Symbol p [labial stop voiceless obstruent]
 Symbol b [labial stop voiced obstruent]
@@ -186,8 +196,8 @@ Labial-lenition:
 
 ##Turn 85
 Velar-rounding:
- {[+velarised], w} {ɑ, ɪ, ɛ, ə} => * {ɒ, ʏ, œ, ɞ} 
-# {ɑ, ɪ, ɛ, ə} => {ɒ, ʏ, œ, ɞ}
+ {[+velarised], w} [vowel] => * [vowel rounded] 
+# {[+velarised], w} [vowel !cmid back] => * [vowel rounded] 
 
 Rhotic-Velarisation:
  ɹ => ɰ
