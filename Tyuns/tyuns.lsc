@@ -183,3 +183,13 @@ Glottal-lost:
 Labial-lenition:
  [labial stop] => [fricative]
  [labiodental fricative] => [labial]
+
+##Turn 85
+Velar-rounding:
+ {[+velarised], w} {ɑ, ɪ, ɛ, ə} => * {ɒ, ʏ, œ, ɞ} 
+# {ɑ, ɪ, ɛ, ə} => {ɒ, ʏ, œ, ɞ}
+
+Rhotic-Velarisation:
+ ɹ => ɰ
+
+##Turn 86
