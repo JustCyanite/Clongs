@@ -10,13 +10,14 @@ Feature frontness(front, central, back)
 Feature quality(lax, tense)
 Feature roundness(rounded,unround)
 
-Feature +aspirated, +velarised, +palatalised, +creaky, +long, +marked, (syllable) +stressed
+Feature +aspirated, +velarised, +palatalised, +creaky, +long, +marked, +ejective, (syllable) +stressed
 Diacritic ʰ [+aspirated]
 Diacritic ʷ [+velarised]
 Diacritic ʲ [+palatalised]
 Diacritic ˀ [+creaky]
 Diacritic ː (floating) [+long]
 Diacritic ́  (floating) [+marked]
+Diacritic ʼ [+ejective]
 Diacritic ˈ (before) [+stressed]
 
 Symbol a [open central lax unround vowel]
@@ -51,6 +52,8 @@ Symbol β [labial fricative voiced obstruent]
 Symbol f [labiodental fricative voiceless obstruent]
 Symbol v [labiodental fricative voiced obstruent]
 
+Symbol t̪ [dental stop voiceless obstruent]
+Symbol d̪ [dental stop voiced obstruent]
 Symbol θ [dental fricative voiceless obstruent]
 Symbol ð [dental fricative voiced obstruent]
 
@@ -123,6 +126,9 @@ Class vcdobstruent {b, d, ɡ, z, β, v, ɣ}
 # ɨ́ => ɨ
 # ú => u
 # ó => o
+
+syntax-cleanup:
+ t͡ɕ => tɕ
 
 ##Turn 76
 Retroflex-collapse:
@@ -203,3 +209,10 @@ Rhotic-Velarisation:
  ɹ => ɰ
 
 ##Turn 86
+h-gemination:
+ [-long] h => [+long] *
+ h => */$ _ [vowel]
+ h [cons -long] => * [cons +long]/$ _
+
+re-plosiving:
+ [+long fricative !alveolar] => [stop]
