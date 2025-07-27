@@ -129,6 +129,7 @@ Class vcdobstruent {b, d, ɡ, z, β, v, ɣ}
 
 syntax-cleanup:
  t͡ɕ => tɕ
+ []$1 $1 => [+long] *
 
 ##Turn 76
 Retroflex-collapse:
@@ -189,7 +190,7 @@ Backed-vowels:
  {ɪ, ɛ} => {ʊ, ɑ}/{_ ʔ, ʔ _} 
 
 Word-final-vowel-loss:
- [vowel] => */[] [] _ $
+ [vowel] => */[] [] [] _ $
  [vowel +long] => [-long]/_ $
 
 ##Turn 84
@@ -208,11 +209,17 @@ Velar-rounding:
 Rhotic-Velarisation:
  ɹ => ɰ
 
+geminate-cleanup2:
+ []$1 $1 => [+long] *
+
 ##Turn 86
 h-gemination:
  [-long] h => [+long] *
  h => */$ _ [vowel]
  h [cons -long] => * [cons +long]/$ _
 
+geminate-cleanup:
+ []$1 $1 => [+long] *
+
 re-plosiving:
- [+long fricative !alveolar] => [stop]
+ [+long fricative !alveolar] => [stop -long]
