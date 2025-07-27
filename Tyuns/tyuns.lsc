@@ -170,6 +170,7 @@ Vowel-pushchain:
 
 Lenition-pushchain:
  {k, s, x, h} => {x, h, h, *}
+ {kʷ, sʷ, xʷ, hʷ} => {xʷ, hʷ, hʷ, w}
 
 ##Turn 81
 Velar-fricatisation:
@@ -203,7 +204,7 @@ Labial-lenition:
 
 ##Turn 85
 Velar-rounding:
- {[+velarised], w} [vowel] => * [vowel rounded] 
+ {[+velarised], w} [vowel] => {[-velarised], *} [vowel rounded] 
 # {[+velarised], w} [vowel !cmid back] => * [vowel rounded] 
 
 Rhotic-Velarisation:
@@ -214,7 +215,7 @@ geminate-cleanup2:
 
 ##Turn 86
 h-gemination:
- [-long] h => [+long] *
+ [] h => [+long] *
  h => */$ _ [vowel]
  h [cons -long] => * [cons +long]/$ _
 
