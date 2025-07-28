@@ -136,7 +136,7 @@ Retroflex-collapse:
  [retroflex] => [alveolar]
 
 h-Lenition:
- θ => h
+ [dental fricative voiceless] => [glottal]
 
 Creaky-stops:
  [+creaky] * => [-creaky] ʔ
