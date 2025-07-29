@@ -1,7 +1,7 @@
 Feature type(*cons, vowel)
 
 Feature place(labial, labiodental, dental, alveolar, postalveolar, retroflex, palatal, uvular, velar, glottal)
-Feature manner(stop, fricative, nasal, trill, tap, glide, lateral, latfricative,affricate)
+Feature manner(stop, fricative, nasal, trill, tap, glide, lateral, latfricative, affricate)
 Feature category(obstruent, sonorant)
 Feature voice(voiced, voiceless)
 
@@ -93,7 +93,8 @@ Symbol ɡ [velar stop voiced obstruent]
 Symbol ŋ [velar nasal voiced sonorant]
 Symbol x [velar fricative voiceless obstruent]
 Symbol ɣ [velar fricative voiced obstruent]
-Symbol w [velar glide voiced sonorant]
+Symbol w [labial glide voiced sonorant]
+Symbol ɰ [velar glide voiced sonorant]
 
 Symbol q [uvular stop voiceless obstruent]
 Symbol ɢ [uvular stop voiced obstruent]
@@ -204,7 +205,9 @@ Labial-lenition:
 
 ##Turn 85
 Velar-rounding:
- {[+velarised], w} [vowel] => {[-velarised], *} [vowel rounded] 
+ {[+velarised], w} j? [vowel] => {[-velarised], *} j [vowel rounded]
+ then:
+  w => ʊ
 # {[+velarised], w} [vowel !cmid back] => * [vowel rounded] 
 
 Rhotic-Velarisation:
@@ -224,3 +227,11 @@ geminate-cleanup:
 
 re-plosiving:
  [+long fricative !alveolar] => [stop -long]
+
+#Stress-markers:
+# [+marked] => [-marked]
+
+#Syllables:
+# explicit
+# [cons]? {[glide], [cons]}? {[vowel], [vowel] [glide]} [cons]? [cons]?
+
