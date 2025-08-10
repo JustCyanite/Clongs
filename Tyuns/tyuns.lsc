@@ -19,7 +19,7 @@ Diacritic ː (floating) [+long]
 Diacritic ́  (floating) [+marked]
 Diacritic ʼ [+ejective]
 Diacritic ̩ [+syllabic]
-Diacritic ˈ (before) [+stressed]
+Diacritic ˈ (before) (floating) [+stressed]
 
 Symbol a [open central lax unround vowel]
 Symbol ɶ [open central lax rounded vowel]
@@ -55,6 +55,7 @@ Symbol v [labiodental fricative voiced obstruent]
 
 Symbol t̪ [dental stop voiceless obstruent]
 Symbol d̪ [dental stop voiced obstruent]
+Symbol n̪ [dental nasal voiced sonorant]
 Symbol θ [dental fricative voiceless obstruent]
 Symbol ð [dental fricative voiced obstruent]
 
@@ -68,6 +69,8 @@ Symbol r [alveolar trill voiced sonorant]
 Symbol ɹ [alveolar glide voiced sonorant]
 Symbol l [alveolar lateral voiced sonorant]
 Symbol ɬ [alveolar latfricative voiceless obstruent]
+Symbol ts [alveolar affricate voiceless obstruent]
+Symbol dz [alveolar affricate voiced obstruent]
 
 Symbol ʈ [retroflex stop voiceless obstruent]
 Symbol ɖ [retroflex stop voiced obstruent]
@@ -109,6 +112,8 @@ Symbol h [glottal fricative voiceless obstruent]
 
 Symbol tɬ 
 Symbol dɮ 
+
+Element geminate [cons]$1 $1
 
 Class stressedvowels {á, é, í, ɨ́, ú, ó}
 Class unstressedvowels {a, e, i, ɨ, u, o}
@@ -169,7 +174,7 @@ z-rhoticisation:
 
 ##Turn 82
 Dentalisation:
- ɕ => θ
+ {ɕ, ɕʷ} => {θ, θʷ}
 
 td-lenition:
  [alveolar stop] => [fricative]
@@ -226,3 +231,45 @@ Syllables:
 
 Stress-markers:
  [+marked] => [-marked +stressed]
+
+syllables:
+ clear
+
+##Turn 87
+geminate-cleaup-again:
+ [cons +long]$1 * => $1 $1
+ then:
+  [cons +long] => [-long]
+
+Nasal-Assimilation:
+ [nasal] => [$place]/_ [obstruent $place]
+ 
+Nasal-fortition:
+ [nasal] [fricative !alveolar] => * [stop]
+ [nasal] [fricative alveolar] => * [affricate]
+
+##Turn 88
+h-revival:
+ * => h/$ _ {[vowel], j}
+
+Syllables:
+ clear
+
+full-palatalisation:
+ {[stop !labial], [labial stop]} {j, ɪ} => {[palatal affricate], [+palatalised]} */_ [vowel]
+ {[fricative !glottal], h} {j, ɪ} => {[palatal], x} */_ [vowel]
+ {[stop !labial], [labial stop]} ʏ => {[palatal affricate +velarised], [+palatalised +velarised]} */_ [vowel]
+ {[fricative !glottal], h} ʏ => {[palatal +velarised], xʷ} */_ [vowel]
+
+more-cleanup:
+ [vowel]$1 $1 => [+long] *
+ {[glide], [lateral], [nasal]}$1 => [+syllabic]/{$, [cons !lateral !glide]} _ {$, [!lateral !glide cons]}//{$1 _, _ $1}
+ {[glide], [lateral], [nasal]} => [-syllabic]/[!cons] _ [!cons]
+ * => ə/{{$, [!vowel]} [cons]$1 _ [cons], [cons]$1 _ [cons] {$, [!vowel]}}//$1 _ $1
+
+Syllables:
+ explicit
+ #{[stop], [fricative], [affricate]}? {[stop], [fricative], [lateral], [nasal], [nasal] [nasal]}? {[vowel], [vowel] [glide], [+syllabic]} {[nasal], [fricative], l}? {[stop], [fricative], [affricate], [nasal]}?
+ [cons]? {{l, ɰ}? [vowel] {l, ɰ, j}?, [+syllabic]} {[cons !glide], @geminate}?
+# [cons]? {{l, ɰ}? [vowel] {l, ɰ, j}?, [+syllabic]} [cons !glide]?
+# [cons] {{l, ɰ}? [vowel] {l, ɰ, j}?, [+syllabic]} [cons !glide]?/_ $
