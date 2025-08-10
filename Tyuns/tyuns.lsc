@@ -113,7 +113,8 @@ Symbol h [glottal fricative voiceless obstruent]
 Symbol tɬ 
 Symbol dɮ 
 
-Element geminate [cons]$1 $1
+Element ogeminate [cons]$1 $1
+Element cgeminate [cons]$2 $2
 
 Class stressedvowels {á, é, í, ɨ́, ú, ó}
 Class unstressedvowels {a, e, i, ɨ, u, o}
@@ -238,6 +239,7 @@ syllables:
 ##Turn 87
 geminate-cleaup-again:
  [cons +long]$1 * => $1 $1
+ . => *
  then:
   [cons +long] => [-long]
 
@@ -263,13 +265,14 @@ full-palatalisation:
 
 more-cleanup:
  [vowel]$1 $1 => [+long] *
- {[glide], [lateral], [nasal]}$1 => [+syllabic]/{$, [cons !lateral !glide]} _ {$, [!lateral !glide cons]}//{$1 _, _ $1}
- {[glide], [lateral], [nasal]} => [-syllabic]/[!cons] _ [!cons]
- * => ə/{{$, [!vowel]} [cons]$1 _ [cons], [cons]$1 _ [cons] {$, [!vowel]}}//$1 _ $1
+ * => ə/{{$, [!vowel]} [cons !glide !lateral]$1 _ [cons !glide !lateral], [cons !glide !lateral]$1 _ [cons !glide !lateral] {$, [!vowel]}}//$1 _ $1
+ then:
+  {[glide], [lateral], [nasal]}$1 => [+syllabic]/{$, [cons !lateral !glide]} _ {$, [!lateral !glide cons]}//{$1 _, _ $1}
+  {[glide], [lateral], [nasal]} => [-syllabic]/{[!cons] _, _ [!cons]}
 
 Syllables:
  explicit
  #{[stop], [fricative], [affricate]}? {[stop], [fricative], [lateral], [nasal], [nasal] [nasal]}? {[vowel], [vowel] [glide], [+syllabic]} {[nasal], [fricative], l}? {[stop], [fricative], [affricate], [nasal]}?
- [cons]? {{l, ɰ}? [vowel] {l, ɰ, j}?, [+syllabic]} {[cons !glide], @geminate}?
+ {[cons], @ogeminate}? {{l, ɰ}? [vowel] {l, ɰ, j}?, [+syllabic]} {[cons !glide], @cgeminate}?
 # [cons]? {{l, ɰ}? [vowel] {l, ɰ, j}?, [+syllabic]} [cons !glide]?
 # [cons] {{l, ɰ}? [vowel] {l, ɰ, j}?, [+syllabic]} [cons !glide]?/_ $
