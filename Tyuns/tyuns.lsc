@@ -10,7 +10,7 @@ Feature frontness(front, central, back)
 Feature quality(lax, tense)
 Feature roundness(rounded,unround)
 
-Feature +aspirated, +velarised, +palatalised, +creaky, +long, +marked, +ejective, +syllabic, (syllable) +stressed
+Feature +aspirated, +velarised, +palatalised, +creaky, +long, +marked, +ejective, +syllabic, (syllable) +stressed, (syllable) +stressy
 Diacritic ʰ [+aspirated]
 Diacritic ʷ [+velarised]
 Diacritic ʲ [+palatalised]
@@ -20,6 +20,7 @@ Diacritic ́  (floating) [+marked]
 Diacritic ʼ [+ejective]
 Diacritic ̩ [+syllabic]
 Diacritic ˈ (before) (floating) [+stressed]
+Diacritic ˌ (before) (floating) [+stressy]
 
 Symbol a [open central lax unround vowel]
 Symbol ɶ [open central lax rounded vowel]
