@@ -1,4 +1,4 @@
-Feature type(*cons, vowel)
+Feature type(*cons, vowel, diphthong)
 
 Feature place(labial, labiodental, dental, alveolar, postalveolar, retroflex, palatal, uvular, velar, glottal)
 Feature manner(stop, fricative, nasal, trill, tap, glide, lateral, latfricative, affricate)
@@ -277,6 +277,42 @@ Syllables:
  [cons !glide !lateral]? {ɰ, l, j}? {[vowel], [+syllabic]} {l, ɰ, j}? {[cons -velarised -palatalised !glide !lateral !glottal], @geminate}?/_ $
 
 new-stress:
+ ([+long] [cons -syllabic]* => [+stressed]/_ $
+  else: 
+   [vowel] [cons -syllabic]* => [+stressed]/_ <syl> $
+   else:
+    [] => [+stressed]/$ _
+  )
+  then:
+   <syl> => [+stressy]/_ <syl> [+stressed]
+
+##Turn 89
+unstressed-shortening:
+ [-stressed -stressy] => [-long]
+
+l-r-vocalisation:
+ [vowel] {ɰ, l}&[-syllabic] => [+long] */_ [cons]
+ {ɰ, ɰ ɰ, l, l l} => ə//{[vowel], ., $} _ [vowel]
+ then:
+  {{ɰ, ɰ ɰ, l, l l}, {ɰ̩, l̩}} => {ɾ, ɾ̩}
+
+obstruent-loss:
+ [stop] => ʔ/_ .
+ [fricative] => h/_ .
+ {s s, z z} => {ts, dz}/$ _
+
+syllables:
+ clear
+
+diphthongisation:
+ {ɑ ɛ, ɛ ɑ} => {ɑɪ, ɪɑ} 
+
+syllables:
+ explicit
+ [cons] {[+syllabic], [vowel] [vowel]*} {m, n, ɲ, ŋ, h, ʔ}?
+ [cons] {[+syllabic], [vowel] [vowel]*} {m, n, ɲ, ŋ, h, ʔ, @geminate}?/_ $
+
+newer-stress:
  ([+long] [cons -syllabic]* => [+stressed]/_ $
   else: 
    [vowel] [cons -syllabic]* => [+stressed]/_ <syl> $
