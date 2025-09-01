@@ -299,13 +299,15 @@ l-r-vocalisation:
 obstruent-loss:
  [stop] => ʔ/_ .
  [fricative] => h/_ .
+ [affricate] * => [] ɪ/_ $
  {s s, z z} => {ts, dz}/$ _
 
 syllables:
  clear
 
 diphthongisation:
- {ɑ ɛ, ɛ ɑ} => {ɑɪ, ɪɑ} 
+ {ɑ ɛ, ɛ ɑ} => {ɑɪ, ɪɑ}
+ {j, j̩} => ɪ//[vowel] _ [vowel]
 
 syllables:
  explicit
@@ -321,3 +323,37 @@ newer-stress:
   )
   then:
    <syl> => [+stressy]/_ <syl> [+stressed]
+
+##Turn 90
+Long-vowel-shorten:
+ [vowel]$1 $1 => [+long] *
+ then:
+  [+long] => [-long]
+
+De-diphthongisation:
+ {ɑɪ, ɑʊ, ʊɑ, əɑ, ɑə, ɑɛ} => ɑː
+ {ɪɑ, ɛə, ɛɑ, ɛɪ, əɛ, ɪɛ, ʊɛ} => ɛː
+ {ʏɑ, ʏɛ, ʏœ, œɑ, œɒ, œɛ, œə, œɪ, ʊi, ɑʏ, ɒʏ, ɛʏ, œʏ, ɛɒ, ɛœ, ɛʊ, əœ, ɪɒ, ɪœ, ʊœ} => œː
+ {uɪ, ʊə, əʊ} => ʊː
+ {əɪ, ɪə, ʊi} => ɪː
+ {ɪu, iʊ, ʏʊ, əʏ, ɪʏ, ʊʏ, ʏə, ʏɪ, ɒʊ, œʊ} => yː
+ {ɒə, ɒɑ, ɒɛ, ɒœ, ɒʊ, ɑɒ, ɑœ, əɒ, ʏɒ, ʊɒ} => ɒː
+ then:
+  [vowel]$1 $1 => [+long] *
+
+De-syllabification:
+ * [+syllabic] => ə [-syllabic]
+ then:
+  ɾ * => [] ʊ/_ $
+
+hiatus-splitting:
+ [vowel] * [vowel] => [] j []
+
+##Turn 91
+glottal-backing:
+ ʔ [cons] => * [uvular]
+
+syllables:
+ explicit
+ [cons] {[+syllabic], [vowel] [vowel]*} {m, n, ɲ, ŋ, h}?
+ [cons] {[+syllabic], [vowel] [vowel]*} {m, n, ɲ, ŋ, h, ʔ, @geminate}?/_ $
