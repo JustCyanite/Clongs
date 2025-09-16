@@ -357,3 +357,8 @@ syllables:
  explicit
  [cons] {[+syllabic], [vowel] [vowel]*} {m, n, ɲ, ŋ, h}?
  [cons] {[+syllabic], [vowel] [vowel]*} {m, n, ɲ, ŋ, h, ʔ, @geminate}?/_ $
+
+##Turn 92
+dental-fortition:
+ [dental fricative] => [alveolar stop +aspirated] 
+ [dental stop] => [alveolar stop]
