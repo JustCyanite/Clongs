@@ -1,0 +1,142 @@
+Feature type(*cons, vowel)
+
+Feature place(labial, labiodental, dental, alveolar, postalveolar, retroflex, prepalatal, palatal, uvular, velar, glottal)
+Feature manner(stop, fricative, nasal, trill, tap, approximant, affricate)
+Feature category(obstruent, sonorant)
+Feature voice(voiced, voiceless)
+Feature +lateral
+
+Feature height(open, cmid, omid, closed)
+Feature frontness(front, central, back)
+Feature quality(lax, tense)
+Feature roundness(rounded,unround)
+
+Feature +prenasalised, +aspirated, +labialised, +palatalised, +creaky, +nasalised, +long, +acute, +grave, +ejective, +syllabic, +lowered
+Diacritic ⁿ (before) [+prenasalised]
+Diacritic ʰ [+aspirated]
+Diacritic ʷ [+labialised]
+Diacritic ʲ [+palatalised]
+Diacritic ˀ [+creaky]
+Diacritic ̃ (floating) [+nasalised]
+Diacritic ́  (floating) [+acute]
+Diacritic ̀  (floating) [+grave]
+Diacritic ʼ [+ejective]
+Diacritic ̩ [+syllabic]
+Diacritic ̞ [+lowered]
+Diacritic ː (floating) [+long] 
+
+Symbol a [open central lax unround vowel]
+Symbol ɶ [open central lax rounded vowel]
+Symbol æ [open front tense unround vowel]
+Symbol ɑ [open back tense unround vowel]
+Symbol ɒ [open back tense rounded vowel]
+Symbol ɛ [omid front tense unround vowel]
+Symbol œ [omid front tense rounded vowel]
+Symbol ə [omid central lax unround vowel]
+Symbol ɞ [omid central lax rounded vowel]
+Symbol ʌ [omid back lax unround vowel]
+Symbol ɔ [omid back tense rounded vowel]
+Symbol e [cmid front tense unround vowel]
+Symbol ø [cmid front tense rounded vowel]
+Symbol o [cmid back tense rounded vowel]
+Symbol ʊ [cmid back lax rounded vowel]
+Symbol i [closed front tense unround vowel]
+Symbol y [closed front tense rounded vowel]
+Symbol ɪ [closed front lax unround vowel]
+Symbol ʏ [closed front lax rounded vowel]
+Symbol ɨ [closed central tense unround vowel]
+Symbol ʉ [closed central tense rounded vowel]
+Symbol ɯ [closed back tense unround vowel]
+Symbol u [closed back tense rounded vowel]
+
+Symbol p [labial stop voiceless obstruent]
+Symbol b [labial stop voiced obstruent]
+Symbol m [labial nasal voiced sonorant]
+Symbol ɸ [labial fricative voiceless obstruent]
+Symbol β [labial fricative voiced obstruent]
+
+Symbol f [labiodental fricative voiceless obstruent]
+Symbol v [labiodental fricative voiced obstruent]
+
+Symbol t̪ [dental stop voiceless obstruent]
+Symbol d̪ [dental stop voiced obstruent]
+Symbol n̪ [dental nasal voiced sonorant]
+Symbol θ [dental fricative voiceless obstruent]
+Symbol ð [dental fricative voiced obstruent]
+
+Symbol t [alveolar stop voiceless obstruent]
+Symbol d [alveolar stop voiced obstruent]
+Symbol n [alveolar nasal voiced sonorant]
+Symbol s [alveolar fricative voiceless obstruent]
+Symbol z [alveolar fricative voiced obstruent]
+Symbol ɬ [alveolar fricative voiceless obstruent +lateral]
+Symbol ɮ [alveolar fricative voiced obstruent +lateral]
+Symbol ɾ [alveolar tap voiced sonorant]
+Symbol r [alveolar trill voiced sonorant]
+Symbol ɹ [alveolar approximant voiced sonorant]
+Symbol l [alveolar approximant voiced sonorant +lateral]
+Symbol ts [alveolar affricate voiceless obstruent]
+Symbol dz [alveolar affricate voiced obstruent]
+Symbol tɬ [alveolar affricate voiceless obstruent +lateral]
+Symbol dɮ [alveolar affricate voiced obstruent +lateral]
+
+Symbol ʃ [postalveolar fricative voiceless obstruent]
+Symbol ʒ [postalveolar fricative voiced obstruent]
+Symbol tʃ [postalveolar affricate voiceless obstruent]
+Symbol dʒ [postalveolar affricate voiced obstruent]
+
+Symbol ʈ [retroflex stop voiceless obstruent]
+Symbol ɖ [retroflex stop voiced obstruent]
+Symbol ɳ [retroflex nasal voiced sonorant]
+Symbol ɽ [retroflex tap voiced sonorant]
+
+Symbol ɕ [prepalatal fricative voiceless obstruent]
+Symbol ʑ [prepalatal fricative voiced obstruent]
+Symbol tɕ [prepalatal affricate voiceless obstruent]
+Symbol dʑ [prepalatal affricate voiced obstruent]
+
+Symbol c [palatal stop voiceless obstruent]
+Symbol ɟ [palatal stop voiced obstruent]
+Symbol ɲ [palatal nasal voiced sonorant]
+Symbol ç [palatal fricative voiceless obstruent]
+Symbol ʝ [palatal fricative voiced obstruent]
+Symbol cç [palatal affricate voiceless obstruent]
+Symbol ɟʝ [palatal affricate voiced obstruent]
+Symbol ʎ [palatal approximant voiced sonorant +lateral]
+Symbol j [palatal approximant voiced sonorant]
+
+Symbol k [velar stop voiceless obstruent]
+Symbol ɡ [velar stop voiced obstruent]
+Symbol ŋ [velar nasal voiced sonorant]
+Symbol x [velar fricative voiceless obstruent]
+Symbol ɣ [velar fricative voiced obstruent]
+Symbol w [labial approximant voiced sonorant]
+Symbol ɰ [velar approximant voiced sonorant]
+
+Symbol q [uvular stop voiceless obstruent]
+Symbol ɢ [uvular stop voiced obstruent]
+Symbol ɴ [uvular nasal voiced sonorant]
+Symbol ʀ [uvular trill voiced sonorant]
+Symbol χ [uvular fricative voiceless obstruent]
+Symbol ʁ [uvular fricative voiced obstruent]
+
+Symbol ʔ [glottal stop voiceless obstruent]
+Symbol h [glottal fricative voiceless obstruent]
+
+Element geminate [cons]$1 $1
+Element diphthong {[vowel] {w, j}, {w, j} [vowel]}
+Element stressable {[vowel], [+syllabic], @diphthong}
+
+Syntax:
+ {g, gʷ} => {ɡ, ɡʷ}
+ {t͡s, d͡z, t͡ʃ, d͡ʒ, t͡ɕ, t͡ɕʷ, d͡ʑʷ} => {ts, dz, tʃ, dʒ, tɕ, tɕʷ, dʑ}
+ []$1 $1 => [+long] *
+
+Turn102:
+{aː, eː, uː, iː} => {æː, iː, aw, aj}
+{aã, eẽ, uũ, iĩ} => {æ̃ː, ĩː, ãw, ãj}
+then: {ãw̃, ãj̃} => {ãw, ãj}
+{d, ɾ, l} => {ɾ, l, l̞}
+
+Turn103:
+{t, s} => {d, z}/@stressable _ @stressable
