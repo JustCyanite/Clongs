@@ -1,0 +1,260 @@
+Feature type(*cons, vowel, diphthong)
+Feature type(*cons, vowel, diphthong)
+
+Feature place(labial, labiodental, dental, alveolar, postalveolar, retroflex, palatal, uvular, velar, glottal)
+Feature manner(stop, fricative, nasal, trill, tap, glide, lateral, latfricative, affricate)
+Feature category(obstruent, sonorant)
+Feature voice(voiced, voiceless)
+#Feature nasality(prenasalised)
+
+Feature height(open, cmid, omid, closed)
+Feature frontness(front, central, back)
+Feature quality(lax, tense)
+Feature roundness(rounded,unround)
+
+Feature +aspirated, +labialised, +palatalised, +creaky, +prenasalised, +nasalised, +long, +marked, +ejective, +syllabic, (syllable) +stressed, (syllable) +stressy
+Diacritic ʰ [+aspirated]
+Diacritic ʷ [+labialised]
+Diacritic ʲ [+palatalised]
+Diacritic ˀ [+creaky]
+Diacritic ⁿ (before) [+prenasalised]
+Diacritic ̃  (floating) [+nasalised]
+Diacritic ː (floating) [+long]
+Diacritic ́  (floating) [+marked]
+Diacritic ʼ [+ejective]
+Diacritic ̩ [+syllabic]
+Diacritic ˈ (before) (floating) [+stressed]
+Diacritic ˌ (before) (floating) [+stressy]
+
+Symbol a [open central lax unround vowel]
+Symbol ɶ [open central lax rounded vowel]
+Symbol ɑ [open back tense unround vowel]
+Symbol ɒ [open back tense rounded vowel]
+Symbol ɛ [omid front tense unround vowel]
+Symbol œ [omid front tense rounded vowel]
+Symbol ə [omid central lax unround vowel]
+Symbol ɞ [omid central lax rounded vowel]
+Symbol ʌ [omid back lax unround vowel]
+Symbol ɔ [omid back tense rounded vowel]
+Symbol e [cmid front tense unround vowel]
+Symbol ø [cmid front tense rounded vowel]
+Symbol o [cmid back tense rounded vowel]
+Symbol ɤ [cmid back tense unround vowel]
+Symbol ʊ [cmid back lax rounded vowel]
+Symbol i [closed front tense unround vowel]
+Symbol y [closed front tense rounded vowel]
+Symbol ɪ [closed front lax unround vowel]
+Symbol ʏ [closed front lax rounded vowel]
+Symbol ɨ [closed central tense unround vowel]
+Symbol ʉ [closed central tense rounded vowel]
+Symbol ɯ [closed back tense unround vowel]
+Symbol u [closed back tense rounded vowel]
+
+Symbol p [labial stop voiceless obstruent]
+Symbol b [labial stop voiced obstruent]
+Symbol m [labial nasal voiced sonorant]
+Symbol ɸ [labial fricative voiceless obstruent]
+Symbol β [labial fricative voiced obstruent]
+
+Symbol f [labiodental fricative voiceless obstruent]
+Symbol v [labiodental fricative voiced obstruent]
+
+Symbol t̪ [dental stop voiceless obstruent]
+Symbol d̪ [dental stop voiced obstruent]
+Symbol n̪ [dental nasal voiced sonorant]
+Symbol θ [dental fricative voiceless obstruent]
+Symbol ð [dental fricative voiced obstruent]
+Symbol t̪θ [dental affricate voiceless obstruent]
+Symbol d̪ð [dental affricate voiced obstruent]
+
+Symbol t [alveolar stop voiceless obstruent]
+Symbol d [alveolar stop voiced obstruent]
+Symbol n [alveolar nasal voiced sonorant]
+Symbol s [alveolar fricative voiceless obstruent]
+Symbol z [alveolar fricative voiced obstruent]
+Symbol ɾ [alveolar tap voiced sonorant]
+Symbol r [alveolar trill voiced sonorant]
+Symbol ɹ [alveolar glide voiced sonorant]
+Symbol l [alveolar lateral voiced sonorant]
+Symbol ɬ [alveolar latfricative voiceless obstruent]
+Symbol ts [alveolar affricate voiceless obstruent]
+Symbol dz [alveolar affricate voiced obstruent]
+
+Symbol ʈ [retroflex stop voiceless obstruent]
+Symbol ɖ [retroflex stop voiced obstruent]
+Symbol ɳ [retroflex nasal voiced sonorant]
+Symbol ɽ [retroflex tap voiced sonorant]
+
+Symbol ʃ [postalveolar fricative voiceless obstruent]
+Symbol ʒ [postalveolar fricative voiced obstruent]
+Symbol tʃ [postalveolar affricate voiceless obstruent]
+Symbol dʒ [postalveolar affricate voiced obstruent]
+
+Symbol c [palatal stop voiceless obstruent]
+Symbol ɟ [palatal stop voiced obstruent]
+Symbol ɲ [palatal nasal voiced sonorant]
+Symbol ɕ [palatal fricative voiceless obstruent]
+Symbol ʑ [palatal fricative voiced obstruent]
+Symbol tɕ [palatal affricate voiceless obstruent]
+Symbol dʑ [palatal affricate voiced obstruent]
+Symbol ʎ [palatal lateral voiced sonorant]
+Symbol j [palatal glide voiced sonorant]
+
+Symbol k [velar stop voiceless obstruent]
+Symbol ɡ [velar stop voiced obstruent]
+Symbol ŋ [velar nasal voiced sonorant]
+Symbol x [velar fricative voiceless obstruent]
+Symbol ɣ [velar fricative voiced obstruent]
+Symbol w [labial glide voiced sonorant]
+Symbol ɰ [velar glide voiced sonorant]
+
+Symbol q [uvular stop voiceless obstruent]
+Symbol ɢ [uvular stop voiced obstruent]
+Symbol ɴ [uvular nasal voiced sonorant]
+Symbol ʀ [uvular trill voiced sonorant]
+Symbol χ [uvular fricative voiceless obstruent]
+Symbol ʁ [uvular fricative voiced obstruent]
+Symbol qχ [uvular affricate voiceless obstruent]
+Symbol ɢʁ [uvular affricate voiced obstruent]
+
+Symbol ʔ [glottal stop voiceless obstruent]
+Symbol h [glottal fricative voiceless obstruent]
+
+#Symbol ᵐp [prenasalised labial stop voiceless obstruent]
+#Symbol ᵐb [prenasalised labial stop voiced obstruent]
+#Symbol ⁿt [prenasalised alveolar stop voiceless obstruent]
+#Symbol ⁿd [prenasalised alveolar stop voiced obstruent]
+
+Symbol tɬ 
+Symbol dɮ 
+
+Element geminate [cons]$1 $1
+
+Syntax-cleanup:
+{ᵐp, ᵐb} => {ⁿp, ⁿb}
+
+Syllables:
+explicit
+[cons]? {l, r}? [vowel] {l, r, h}? {[nasal], [alveolar fricative]}?
+
+Initial-Stress:
+[vowel] => [+stressed]/_ [cons] . <syl> $
+ else:
+ [] => [+stressed]/_ <syl> <syl> $
+  else:
+  [] => [+stressed]/$ _ 
+
+denasalisation:
+[+prenasalised] => [-prenasalised]
+
+lateralisation:
+{hl, tʰl, dʰl} => {ɬ, tɬ, dɮ}
+
+nasal-assimilation:
+[nasal] => [$place]/_ [obstruent $place !glottal]
+
+coda-h-loss:
+[vowel] h => [+long] */_ [cons]? .
+
+secondary-articulation:
+[stop] => [+palatalised]/_ ɪ
+[stop] => [+labialised]/_ u
+
+i-e-split:
+[closed front lax unround vowel +stressed] => [tense]
+[closed front lax unround vowel -stressed] => [omid tense]
+
+onset-h-loss:
+[cons]$1 h => $1 $1
+h => */[vowel] _ [vowel]
+then:
+ [vowel]$1 $1 => [+long] *
+
+final-vowel-loss:
+{l, r}? [vowel -long -stressed] => [+syllabic] */[!cons] [!stop]? [cons] _ $
+[vowel +long] => [-long]/_ $
+
+Syllables:
+explicit
+[cons]? {r, l}? {[vowel], [+syllabic]} {r, l}? [cons]?
+[cons]? {r, l}? {[vowel], [+syllabic]} {r, l}? {[cons], [nasal] [cons], [fricative] [cons]}?/_ $
+
+coda-devoicing:
+[voiced obstruent] => [voiceless]/_ $
+
+unstressed-vowel-loss:
+[-stressed vowel] => */!$ [voiceless obstruent] _ [voiceless obstruent] !$
+[-stressed vowel] => ə/[voiceless obstruent] _ [voiceless obstruent]
+
+voicing-assimilation:
+[stop] => [$voice]/[fricative $voice] _
+
+secondary-articulation-assimilation:
+[fricative] => [palatal]/_ [+palatalised]
+
+coda-glide-loss:
+{a, e, i} l => {ɒː, œː, yː} *//_ {l, [vowel]}
+l => w/{ə, u} _//_ l
+ then:
+ u => w/_ [vowel]//_ u&[-long]
+
+syllables:
+explicit
+[cons]? {r, l}? w? {[vowel], [+syllabic]} {w, r}? [cons]?
+[cons]? {r, l}? w? {[vowel], [+syllabic]} {w, r, [nasal]}? [fricative]? [cons]?/_ $
+
+trill-to-stop:
+[trill] => [tap]/[vowel] _ {[!trill], ., $}
+ then:
+ [trill]$1 $1 => $1 *
+  then:
+  [tap] [fricative $voice] => [affricate obstruent $voice] *
+   then:
+   [tap] [nasal]? => [stop obstruent] [+syllabic]/_ {[!fricative], ., $}
+
+syllables:
+explicit
+[cons]? {r, l}? w? {[vowel], [+syllabic]} {w, r}? [cons]?
+[cons]? {r, l}? w? {[vowel], [+syllabic]} {w, [nasal], [fricative]}? [cons]?/_ $
+
+lateral-simplification:
+{ɬ, tɬ, dɮ} => l
+
+intervocalic-voicing:
+[voiceless obstruent] => [voiced]/[vowel] _ [vowel]
+
+aspirated-lenition:
+[+aspirated stop alveolar] => [fricative -aspirated dental]
+[+aspirated stop !alveolar] => [fricative -aspirated]
+
+cluster-l-loss:
+[stop] l => [+labialised] *
+l => w/[!stop] _
+[lateral +syllabic] => u
+
+k-to-p:
+kʷ => p/$ _
+kʷ => w//$ _
+
+trill-fortition:
+{[fricative dental], [fricative]} => {[alveolar stop], [stop]}/_ [trill]
+
+intervocalic-approximation:
+ɣ => j/[vowel] _ [vowel]
+
+th-mutation:
+[dental fricative +palatalised] => [palatal -palatalised]
+[dental fricative +labialised] => [alveolar -labialised]
+
+final-labial-metathesis:
+* [cons]? [+labialised] => w [] [-labialised]/_ $
+then:
+w => u/[cons] _ [cons]
+then:
+uw => ɤː
+
+degemination:
+[cons]$1 $1 => $1 *
+
+post-nasal-fortition:
+[fricative] => [stop]/[nasal] _
