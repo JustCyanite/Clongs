@@ -27,6 +27,7 @@ Diacritic ː (floating) [+long]
 
 Symbol a [open central lax unround vowel]
 Symbol ɶ [open central lax rounded vowel]
+Symbol æ [open front tense unround vowel]
 Symbol ɑ [open back tense unround vowel]
 Symbol ɒ [open back tense rounded vowel]
 Symbol ɛ [omid front tense unround vowel]
@@ -91,7 +92,120 @@ Symbol ɽ [retroflex tap voiced sonorant]
 
 Symbol t̻ [prepalatal stop voiceless obstruent]
 Symbol d̻ [prepalatal stop voiced obstruent]
-???LINES MISSING
+Symbol ɲ̟ [prepalatal nasal voiced sonorant]
+Symbol ɕ [prepalatal fricative voiceless obstruent]
+Symbol ʑ [prepalatal fricative voiced obstruent]
+Symbol tɕ [prepalatal affricate voiceless obstruent]
+Symbol dʑ [prepalatal affricate voiced obstruent]
+
+Symbol c [palatal stop voiceless obstruent]
+Symbol ɟ [palatal stop voiced obstruent]
+Symbol ɲ [palatal nasal voiced sonorant]
+Symbol ç [palatal fricative voiceless obstruent]
+Symbol ʝ [palatal fricative voiced obstruent]
+Symbol cç [palatal affricate voiceless obstruent]
+Symbol ɟʝ [palatal affricate voiced obstruent]
+Symbol ʎ [palatal approximant voiced sonorant +lateral]
+Symbol j [palatal approximant voiced sonorant]
+
+Symbol k [velar stop voiceless obstruent]
+Symbol ɡ [velar stop voiced obstruent]
+Symbol ŋ [velar nasal voiced sonorant]
+Symbol x [velar fricative voiceless obstruent]
+Symbol ɣ [velar fricative voiced obstruent]
+Symbol w [labial approximant voiced sonorant]
+Symbol ɰ [velar approximant voiced sonorant]
+
+Symbol q [uvular stop voiceless obstruent]
+Symbol ɢ [uvular stop voiced obstruent]
+Symbol ɴ [uvular nasal voiced sonorant]
+Symbol ʀ [uvular trill voiced sonorant]
+Symbol χ [uvular fricative voiceless obstruent]
+Symbol ʁ [uvular fricative voiced obstruent]
+
+Symbol ʔ [glottal stop voiceless obstruent]
+Symbol h [glottal fricative voiceless obstruent]
+
+Element geminate [cons]$1 $1
+Element stressable {[vowel], [+syllabic]}
+
+Syntax:
+ {g, gʷ} => {ɡ, ɡʷ}
+ {t͡ɕ, t͡ɕʷ} => {tɕ, tɕʷ}
+ []$1 $1 => [+long] *
+
+Turn76:
+[retroflex] => [alveolar]
+θ => h
+[vowel +creaky] * => [-creaky] ʔ 
+
+Turn77-78:
+[uvular] => [velar]
+{ɾ, ɣ, ʎ} => {d, ɹ, j}
+[palatal stop] => [prepalatal affricate]
+
+Turn79:
+{[velar stop], [alveolar stop]} j => [prepalatal affricate] *
+ɬ => l
+
+Turn80:
+{ɨ, i, e, a, o, u} => {ɪ, ɛ, ɛ, ɑ, ʊ, ʊ}
+{k, x, s, h} => {x, h, h, *}
+{kʷ, xʷ, sʷ, hʷ} => {xʷ, hʷ, hʷ, w}
+
+Turn81:
+ɡ => ɣ
+z => ɹ
+
+Turn82:
+{ɕ, ɕʷ} => {θ, θʷ}
+[alveolar stop] => [fricative]
+
+Turn83:
+{ɪ, ɛ} => {ʊ, ɑ}/{ʔ _, _ ʔ}
+[vowel -long -acute -grave] => */_ $
+[vowel +long] => [-long]/_ $
+
+Turn84:
+ʔ => *
+{p, b, f, v} => {ɸ, β, ɸ, β}
+
+Turn85:
+{[+labialised], w, w j} [vowel] => {[-labialised], *, * j} [vowel rounded]
+ then:
+ w => ʊ
+ [+labialised] * => [-labialised] ʊ
+  then:
+  ɹ => ɰ
+#  then: $$ => * #classifiers aɡɡlutinate onto verbs to nominalise 
+
+Turn86:
+[] h => [+long] *
+h => */$ _ [vowel]
+h [cons -long] => * [cons +long]/$ _
+then: $$ => * #Auxilliaries/classifiers agglutinate onto verbs/nouns
+then: []$1 $1 => [+long] * #geminate cleanup
+ then:
+  [+long fricative !alveolar] => [stop -long ]
+  then: {[approximant], [nasal]} => [+syllabic]/{$, [cons !approximant]} _ {$, [cons !approximant]}
+
+Turn87:
+[nasal] => [$place]/_ [obstruent $place]
+then: [prepalatal nasal] => [palatal nasal]
+then:
+[nasal] [fricative !alveolar] => * [stop]
+[nasal] [fricative alveolar] => * [affricate]
+
+Turn88:
+* => h/$ _ {[vowel], j}
+ then:
+ {[stop !labial], [labial stop]} {j, ɪ} => {[prepalatal affricate], [+palatalised]} */_ [vowel]
+ {[fricative !glottal], h} {j, ɪ} => {[prepalatal], x} */_ [vowel]
+ {[stop !labial], [labial stop]} ʏ => {[prepalatal affricate +labialised], [+palatalised +labialised]} */_ [vowel]
+ {[fricative !glottal], h} ʏ => {[prepalatal +labialised], xʷ} */_ [vowel]
+  then:
+  [vowel $height $roundness $quality $frontness] => [+acute]/{[$height $roundness $quality $frontness] _, _  [$height $roundness $quality $frontness]}
+  then: []$1 $1 => [+long] *
    * => ə/{{$, [!vowel]} [cons *syllabic !approximant]$1 _ [cons *syllabic !approximant], [cons *syllabic !approximant]$1 _ [cons *syllabic !approximant] {$, [!vowel]}}//$1 _ $1
    then:
    {[approximant], [nasal]}$1 => [+syllabic]/{$, [cons !approximant]} _ {$, [!approximant cons]}//{$1 _, _ $1}
