@@ -11,7 +11,7 @@ Feature frontness(front, central, back)
 Feature quality(lax, tense)
 Feature roundness(rounded,unround)
 
-Feature +prenasalised, +aspirated, +labialised, +palatalised, +creaky, +nasalised, +long, +acute, +grave, +ejective, +syllabic
+Feature +prenasalised, +aspirated, +labialised, +palatalised, +creaky, +nasalised, +long, +acute, +grave, +ejective, +syllabic, +lowered
 Diacritic ⁿ (before) [+prenasalised]
 Diacritic ʰ [+aspirated]
 Diacritic ʷ [+labialised]
@@ -23,10 +23,12 @@ Diacritic ̀  (floating) [+grave]
 Diacritic ʼ [+ejective]
 Diacritic ̩ [+syllabic]
 Diacritic ̯ [-syllabic]
+Diacritic ̞̜ [+lowered]
 Diacritic ː (floating) [+long] 
 
 Symbol a [open central lax unround vowel]
 Symbol ɶ [open central lax rounded vowel]
+Symbol æ [open front tense unround vowel]
 Symbol ɑ [open back tense unround vowel]
 Symbol ɒ [open back tense rounded vowel]
 Symbol ɛ [omid front tense unround vowel]
@@ -91,123 +93,53 @@ Symbol ɽ [retroflex tap voiced sonorant]
 
 Symbol t̻ [prepalatal stop voiceless obstruent]
 Symbol d̻ [prepalatal stop voiced obstruent]
-???LINES MISSING
-   * => ə/{{$, [!vowel]} [cons *syllabic !approximant]$1 _ [cons *syllabic !approximant], [cons *syllabic !approximant]$1 _ [cons *syllabic !approximant] {$, [!vowel]}}//$1 _ $1
-   then:
-   {[approximant], [nasal]}$1 => [+syllabic]/{$, [cons !approximant]} _ {$, [!approximant cons]}//{$1 _, _ $1}
-   {[approximant], [nasal]} => [-syllabic]/{{!$, [!cons]} _, _ {!$, [!cons]}}
+Symbol ɲ̟ [prepalatal nasal voiced sonorant]
+Symbol ɕ [prepalatal fricative voiceless obstruent]
+Symbol ʑ [prepalatal fricative voiced obstruent]
+Symbol tɕ [prepalatal affricate voiceless obstruent]
+Symbol dʑ [prepalatal affricate voiced obstruent]
 
-New-Stress-pattern @stressable:
-[] => [-acute -grave]
-then:
- ([+long] => [+acute]/_ $ #if final syllable(vowel) is long: it is stressed
- else:
-  [] => [+acute]/_ [] $ #if not, penultimate vowel is stressed
-  else:
-   [] => [+acute]/$ _ #if not, antepenult is stressed, which is basically also the first syllable
- )
- then: [] => [+grave]/_ [] [+acute]
+Symbol c [palatal stop voiceless obstruent]
+Symbol ɟ [palatal stop voiced obstruent]
+Symbol ɲ [palatal nasal voiced sonorant]
+Symbol ç [palatal fricative voiceless obstruent]
+Symbol ʝ [palatal fricative voiced obstruent]
+Symbol cç [palatal affricate voiceless obstruent]
+Symbol ɟʝ [palatal affricate voiced obstruent]
+Symbol ʎ [palatal approximant voiced sonorant +lateral]
+Symbol j [palatal approximant voiced sonorant]
 
-Turn89:
-[-acute -grave vowel] => [-long]
-then:
- [vowel] {ɰ, l}&[-syllabic] => [+long] */_ [cons]
- {ɰ, ɰ ɰ, l, l l} => ə//{[vowel], ., $} _ [vowel]
- then:
-  {{ɰ, ɰ ɰ, l, l l}, {ɰ̩, l̩}} => {ɾ, ɾ̩}
+Symbol k [velar stop voiceless obstruent]
+Symbol ɡ [velar stop voiced obstruent]
+Symbol ŋ [velar nasal voiced sonorant]
+Symbol x [velar fricative voiceless obstruent]
+Symbol ɣ [velar fricative voiced obstruent]
+Symbol w [labial approximant voiced sonorant]
+Symbol ɰ [velar approximant voiced sonorant]
 
-Turn89-part2:
-[stop] => ʔ/[vowel] _ {!@stressable, $}
-[fricative] => h/[vowel] _ {!@stressable, $}
-[affricate] * => [] ɪ/_ $
-[alveolar fricative +long] => [affricate -long]/$ _
-then:
- {ɑ ɛ, ɛ ɑ} => {ɑɪ, ɪɑ}
- {j, j̩} => ɪ//[vowel] _ [vowel]
- then:
-   {m̩ɲ, mɲ} => məɲ/{$ _, _ $}
+Symbol q [uvular stop voiceless obstruent]
+Symbol ɢ [uvular stop voiced obstruent]
+Symbol ɴ [uvular nasal voiced sonorant]
+Symbol ʀ [uvular trill voiced sonorant]
+Symbol χ [uvular fricative voiceless obstruent]
+Symbol ʁ [uvular fricative voiced obstruent]
 
-Stress-reapplied @stressable:
-[] => [-acute -grave]
-then:
- ([+long] => [+acute]/_ $ #if final syllable(vowel) is long: it is stressed
- else:
-  [] => [+acute]/_ [] $ #if not, penultimate vowel is stressed
-  else:
-   [] => [+acute]/$ _ #if not, antepenult is stressed, which is basically also the first syllable
- )
- then: [] => [+grave]/_ [] [+acute]
+Symbol ʔ [glottal stop voiceless obstruent]
+Symbol h [glottal fricative voiceless obstruent]
 
-Turn90:
-[vowel $height $roundness $quality $frontness] => [+acute]/{[$height $roundness $quality $frontness +acute] _, _  [$height $roundness $quality $frontness +acute]}
-[vowel $height $roundness $quality $frontness] => [+grave]/{[$height $roundness $quality $frontness +grave] _, _  [$height $roundness $quality $frontness +grave]}
-then: [vowel]$1 $1 => [+long] *
-then: [+long] => [-long]
-then:
- {ɑɪ, ɑʊ, ʊɑ, əɑ, ɑə, ɑɛ} => ɑː
- {ɪɑ, ɛə, ɛɑ, ɛɪ, əɛ, ɪɛ, ʊɛ} => ɛː
- {ʏɑ, ʏɛ, ʏœ, œɑ, œɒ, œɛ, œə, œɪ, ʊi, ɑʏ, ɒʏ, ɛʏ, œʏ, ɛɒ, ɛœ, ɛʊ, əœ, ɪɒ, ɪœ, ʊœ} => œː
- {uɪ, ʊə, əʊ} => ʊː
- {əɪ, ɪə, ʊi} => ɪː
- {ɪu, iʊ, ʏʊ, əʏ, ɪʏ, ʊʏ, ʏə, ʏɪ, ɒʊ, œʊ} => yː
- {ɒə, ɒɑ, ɒɛ, ɒœ, ɒʊ, ɑɒ, ɑœ, əɒ, ʏɒ, ʊɒ} => ɒː
- then:
-  [vowel]$1 $1 => [+long] *
+Element geminate [cons]$1 $1
+Element stressable {[vowel], [+syllabic]}
 
-Turn90-part2:
-  * [+syllabic] => ə [-syllabic]
- then:
-  ɾ * => [] ʊ/_ $
- then:
- [vowel] * [vowel] => [] j []
-
-Turn91:
-ʔ [cons] => * [uvular]
-
-Turn92:
-[dental fricative] => [alveolar stop +aspirated]
-[dental stop] => [alveolar stop]
-
-Turn93:
-[uvular obstruent] => [glottal]/_ [vowel back]
-[uvular obstruent] => [velar]/_ {[vowel front], ə}
-
-Turn94:
-[velar fricative -labialised] => [stop +aspirated]
-
-Turn95:
-h => x/{$, [cons]} _
-h => ʕ/[vowel] _ 
-
-Turn96:
-[labial fricative] => [stop +aspirated]
-
-Turn97:
-[vowel] [nasal]$1 $1 => [+nasalised] * []
-
-Turn98:
-xʷ => w
-
-Turn99:
-{ɑ, ɛ, ɪ, ʊ} => {a, e, i, ɯ} 
-{œ, ʏ} => y
-[voiced stop +aspirated] => [-aspirated +long]
-
-Turn100:
-{a, i, ɯ, e, y} => {ɑ, e, ɔ, æ, ø}/_ {ʕ, ɴ}
-[alveolar affricate] => [fricative +long]
-
-Turn101 [vowel]:
-[+acute +long] => [-acute +grave -long]
-[*acute +long] => [+acute -long]
-[+grave] => [-grave +acute -long]
-
-Turn101-part2:
-{j, ʑ} => {ʝ, ð}
+Syntax:
+ {g, gʷ} => {ɡ, ɡʷ}
+ {t͡s, d͡z, t͡ʃ, d͡ʒ, t͡ɕ, t͡ɕʷ, d͡ʑʷ} => {ts, dz, tʃ, dʒ, tɕ, tɕʷ, dʑ}
+ []$1 $1 => [+long] *
 
 Turn102:
-[prepalatal affricate voiceless] => [fricative +long] 
-[prepalatal affricate voiced] => [palatal fricative +long] 
+{aː, eː, uː, iː} => {æː, iː, aw, aj}
+{aã, eẽ, uũ, iĩ} => {æ̃ː, ĩː, ãw, ãj}
+ then: {ãw̃, ãj̃} => {ãw, ãj}
+ {d, ɾ, l} => {ɾ, l, l̞}
 
 Turn103:
 {t, s} => {d, z}/@stressable _ @stressable
